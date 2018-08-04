@@ -1,0 +1,115 @@
+\documentclass[12pt oneside]{report}
+
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkbrown}{HTML}{8C0707}
+\definecolor{blue}{HTML}{094BF2}
+
+\usepackage{geometry}
+\geometry{
+	lmargin = 31.75mm,
+	rmargin = 25.4mm,
+	top = 19.05mm,
+	bottom = 19.05mm,
+}
+\setlength{\baselineskip}{1.5\baselineskip}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{Dept. of CSE, RNSIT}
+\cfoot{20XX}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+\usepackage{fontspec}
+\setmainfont[
+    Extension=.ttf,
+    UprightFont=Calibri,
+    BoldFont=CALIBRIB,
+    ItalicFont=CALIBRII,
+    BoldItalicFont=CALIBRIZ,
+]{calibri}
+\usepackage{ragged2e}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+	\begin{tikzpicture}[remember picture, overlay]
+  		\draw[line width = 2pt] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
+	\end{tikzpicture}
+	\break
+	\break
+	\begin{center}
+			{\Huge{\textcolor{darkbrown}{RNS Institute of Technology \break}}}
+			{\small{\textcolor{brown}{Channasandra, Dr. Vishnuvaradana Road, Bengaluru-560 098}}}
+			\break
+			\break
+			{\frame{\includegraphics[scale=1]{images/logo.jpg}}}
+			\break
+			{\LARGE{\textcolor{darkbrown}{Department of Computer Science and Engineering}}}
+			\break
+			\break
+			{\normalsize{\textcolor{darkbrown}{Practising Project}}}
+			\break
+			{\normalsize{\textcolor{darkbrown}{Seminar Report \break on}}}
+			\break \break \break \break
+			{\Huge{\textcolor{blue}{``TITLE"}}}
+			\break \break \break \break
+			{\small{Submitted by:}}			
+			\break \break
+			{\large{\textcolor{blue}{NAME1}\break}}
+			{\large{\textcolor{blue}{(USN)}}}
+			\break \break
+			{\large{\textcolor{blue}{NAME2}\break}}
+			{\large{\textcolor{blue}{(USN)}}}
+			\break \break
+			{\large{\textcolor{blue}{NAME3}\break}}
+			{\large{\textcolor{blue}{(USN)}}}
+			\break \break
+			{\large{\textcolor{blue}{NAME4}\break}}
+			{\large{\textcolor{blue}{(USN)}}}
+			\break \break \break \break \break \break 
+			{\large{\textcolor{darkbrown}{20XX - 20XX}}}
+	\end{center}
+	
+	\newpage
+		
+	\begin{tikzpicture}[remember picture, overlay]
+  		\draw[line width = 2pt] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
+	\end{tikzpicture}
+	\break
+	\break
+	\begin{center}
+			{\Huge{\textcolor{darkbrown}{RNS Institute of Technology \break}}}
+			{\small{\textcolor{brown}{Channasandra, Dr. Vishnuvaradana Road, Bengaluru-560 098}}}
+			\break
+			\break
+			{\LARGE{\textcolor{blue}{Department of Computer Science \& Engineering}}}
+			\break \break
+			{\frame{\includegraphics[scale=1]{images/logo.jpg}}}
+			\break \break 
+			{\Huge{CERTIFICATE}}
+			\break
+			\break
+			\break
+	\end{center}
+	\raggedright
+		Certified that the Practising project Seminar on topic {\textbf{\textit{``TITLE”}}} 
+		has been successfully presented at 
+		{\textbf{RNS Institute of Technology by NAME1, NAME2, NAME3 \& NAME4, bearing USNs USN1, USN2, USN3 \& USN4}}
+		respectively for the XXX Semester, 
+		\textbf{Bachelor of	Engineering in Computer Science and Engineering}
+		of Visvesvaraya Technological University, Belagavi, for the	enrichment of knowledge	during the academic year 20XX-20XX
+	\break \break \break
+	\noindent
+	\begin{enumerate}
+		\item TEACHER1 \hspace{10cm}{\textbf{Dr. G T Raju}}
+		\item TEACHER2 
+	\end{enumerate}
+	\small{Project Coordinators} \hspace{9cm}{Dean of Engg., Prof. and Head }
+\end{document}

@@ -1,0 +1,59 @@
+%%^^A%%  fontspec-doc-luatex.tex -- part of FONTSPEC <wspr.io/fontspec>
+
+\documentclass[a4paper]{l3doc}
+\usepackage{fontspec-doc-style}
+\showexamplesfalse
+\begin{document}
+
+\part{\LuaTeX-only font features}
+\label{sec:luatex-features}
+
+\section{Custom font features}
+
+Pre-2016, it was possible to load an OpenType font feature file to define new OpenType features for a selected font. This facility was particularly useful to implement custom substitutions, for example.  As of \TeX{}Live~2016, \LuaTeX/\pkg{luaotfload} no longer supports this feature, but provides its own internal mechanisms for an equivalent interface.
+
+Any documents using `feature file' options will need to transition to the new interface.
+Figure~\ref{fig:featurefile} shows an example.
+Please refer to the \LuaTeX/\pkg{luaotfload} documentation for more details.
+
+\begin{figure}
+\caption{An example of custom font features.}
+\label{fig:featurefile}
+\hrule
+\begin{Verbatim}
+\documentclass{article}
+\usepackage{fontspec}
+\directlua{
+    fonts.handlers.otf.addfeature {
+        name = "oneb",
+        type = "substitution",
+        data = {
+                ["1"] = "one.ss01",
+        }
+    }
+}
+\setmainfont{Vollkorn-Regular.otf}[RawFeature=+oneb]
+\begin{document}
+1234567890
+\end{document}
+\end{Verbatim}
+\hrule
+\end{figure}
+
+\end{document}
+
+% /©
+% ------------------------------------------------
+% The FONTSPEC package  <wspr.io/fontspec>
+% ------------------------------------------------
+% Copyright  2004-2018  Will Robertson, LPPL "maintainer"
+% Copyright  2009-2015  Khaled Hosny
+% Copyright  2013       Philipp Gesang
+% Copyright  2013-2016  Joseph Wright
+% ------------------------------------------------
+% This package is free software and may be redistributed and/or modified under
+% the conditions of the LaTeX Project Public License, version 1.3c or higher
+% (your choice): <http://www.latex-project.org/lppl/>.
+% ------------------------------------------------
+% ©/
+
