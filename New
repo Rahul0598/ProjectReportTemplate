@@ -1,2 +1,0 @@
-pdflatex -synctex=1 -interaction=nonstopmode %.tex
-lualatex -interaction=nonstopmode %.tex
