@@ -2,8 +2,10 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{calc}
-\usepackage{ragged2e}
 \usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagenumbering{gobble}
 
 \definecolor{darkbrown}{RGB}{153, 51, 51}
 \definecolor{blue}{RGB}{102, 102, 255}
@@ -19,4 +21,8 @@
 
 \begin{document}
 \input{./certificate.tex}
+\input{./acknowledgements.tex}
+\input{./abstract.tex}
+\input{./chapter1.tex}
+\input{./chapter2.tex}
 \end{document}
