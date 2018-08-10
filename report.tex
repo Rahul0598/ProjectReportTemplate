@@ -3,13 +3,24 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{multicol}
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\pagenumbering{gobble}
+\fancyhf{}
+\fancyhead[L]{ONLINE BANKING MANAGEMENT SYSTEM}
+\fancyfoot[L]{RNSIT, Dept. of CSE}
+\fancyfoot[R]{Page \thepage}
+\fancyheadoffset[RE,LO]{0.5in} % increase length of head/foot rules.
+\fancyfootoffset[RE,LO]{0.5in}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{2pt}
 
 \definecolor{darkbrown}{RGB}{153, 51, 51}
 \definecolor{blue}{RGB}{102, 102, 255}
 \definecolor{black}{RGB}{0, 0, 0}
+
+\usepackage{etoolbox} % enable fancyhdr on chapter pages.
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 \usepackage{geometry}
 \geometry{
@@ -23,6 +34,10 @@
 \input{./certificate.tex}
 \input{./acknowledgements.tex}
 \input{./abstract.tex}
+\tableofcontents
+\thispagestyle{empty} % removes page number from toc
+\clearpage
+\setlength{\headsep}{1pt}
 \input{./chapter1.tex}
 \input{./chapter2.tex}
 \end{document}
