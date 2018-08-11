@@ -1,10 +1,13 @@
 \documentclass[12pt]{report}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{titletoc}
 \usetikzlibrary{calc}
 \usepackage{multicol}
 \usepackage{ragged2e}
 \usepackage{fancyhdr}
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} 
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{ONLINE BANKING MANAGEMENT SYSTEM}
@@ -20,6 +23,16 @@
 
 \usepackage{etoolbox} % enable fancyhdr on chapter pages.
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\dottedcontents{section}[0em]{\bfseries}{2.9em}{1pc}
+\dottedcontents{subsection}[0em]{}{3.3em}{1pc}
+
+% center the toc heading
+\renewcommand{\contentsname}{\centering Contents}
+
+\AtBeginDocument{%
+  \addtocontents{toc}{\protect\thispagestyle{empty}}%
+  \addtocontents{lof}{\protect\thispagestyle{empty}}%
+}
 
 \usepackage{geometry}
 \geometry{
@@ -33,15 +46,15 @@
 
 \input{./title.tex}
 \input{./certificate.tex}
-\input{./acknowledgements.tex}
 \input{./abstract.tex}
+\input{./acknowledgements.tex}
+
 \tableofcontents
-\thispagestyle{empty} % removes page number from toc
-\clearpage
-\setlength{\headsep}{1pt}
+\listoffigures
+
+\pagenumbering{arabic}
 \input{./chapter1.tex}
 \input{./chapter2.tex}
 \end{document}
-=======
-\end{document}
+
 
