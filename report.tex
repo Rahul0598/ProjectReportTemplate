@@ -1,12 +1,24 @@
 \documentclass[12pt]{report}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{titletoc}
 \usetikzlibrary{calc}
 \usepackage{multicol}
+\usepackage{titletoc}
 \usepackage{ragged2e}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr} 
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage[utf8]{inputenc}
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} 
+
+
+
+\usepackage{etoolbox} % enable fancyhdr on chapter pages.
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\dottedcontents{section}[0em]{\bfseries}{2.9em}{1pc}
+\dottedcontents{subsection}[0em]{}{3.3em}{1pc}
+
+\renewcommand\bibname{References}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -21,12 +33,13 @@
 \definecolor{blue}{RGB}{102, 102, 255}
 \definecolor{black}{RGB}{0, 0, 0}
 
-\usepackage{etoolbox} % enable fancyhdr on chapter pages.
-\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
-\dottedcontents{section}[0em]{\bfseries}{2.9em}{1pc}
-\dottedcontents{subsection}[0em]{}{3.3em}{1pc}
+\begin{comment}
+TODO
+1. fix headers and footers size, lenght and not appearing on last page of chapters
+2. remove bibliography from page14 appearing randomly
+3. indent table of contents by one, two and so on tab spaces only
+\end{comment}
 
-% center the toc heading
 \renewcommand{\contentsname}{\centering Contents}
 
 \AtBeginDocument{%
@@ -55,6 +68,12 @@
 \pagenumbering{arabic}
 \input{./chapter1.tex}
 \input{./chapter2.tex}
+\input{./chapter3.tex}
+\input{./chapter4.tex}
+\input{./chapter5.tex}
+\input{./chapter6.tex}
+\input{./ref.tex}
+
 \end{document}
 
 
