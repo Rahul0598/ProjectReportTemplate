@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt,oneside]{report}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -11,12 +11,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} 
 
-
-
 \usepackage{etoolbox} % enable fancyhdr on chapter pages.
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
-\dottedcontents{section}[0em]{\bfseries}{2.9em}{1pc}
-\dottedcontents{subsection}[0em]{}{3.3em}{1pc}
 
 \renewcommand\bibname{References}
 
@@ -35,9 +31,7 @@
 
 \begin{comment}
 TODO
-1. fix headers and footers size, lenght and not appearing on last page of chapters
-2. remove bibliography from page14 appearing randomly
-3. indent table of contents by one, two and so on tab spaces only
+1. fix headers and footers size, length.
 \end{comment}
 
 \renewcommand{\contentsname}{\centering Contents}
@@ -56,12 +50,13 @@ TODO
 }
 
 \begin{document}
-
+	
 \input{./title.tex}
 \input{./certificate.tex}
 \input{./abstract.tex}
 \input{./acknowledgements.tex}
 
+\setcounter{tocdepth}{2}
 \tableofcontents
 \listoffigures
 
