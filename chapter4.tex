@@ -1,21 +1,463 @@
 \chapter{Implementation}
 
-\section{Section 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
+\section{DATABASE CONNECTIVITY}
+Java Database Connectivity (JDBC) is an application programming interface (API)
+for the programming language Java, which defines how a client may access a database. It is
+Java based data access technology and used for Java database connectivity. It is part of the
+Java Standard Edition platform, from Oracle Corporation. It provides methods to query and
+update data in a database, and is oriented towards relational databases. A JDBC-to-ODBC
+bridge enables connections to any ODBC-accessible data source in the Java virtual machine
+(JVM) host environment.
 
 \thispagestyle{fancy}
 
-\section{Section 2}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
-
+\section{FUNCTIONALITY}
+JDBC allows multiple implementations to exist and be used by the same application.
+The API provides a mechanism for dynamically loading the correct Java packages and
+registering them with the JDBC Driver Manager. The Driver Manager is used as a connection
+factory for creating JDBC connections.\\
+JDBC connections support creating and executing statements. These may be update
+statements such as SQL's CREATE, INSERT, UPDATE and DELETE, or they may be query
+statements such as SELECT. Additionally, stored procedures may be invoked through a
+JDBC connection. JDBC represents statements using one of the following classes:
+\begin{itemize}
+\item Statement – the statement is sent to the database server each and every time.
+\item PreparedStatement – the statement is cached and then the execution path is pre-
+determined on the database server allowing it to be executed multiple times in an
+efficient manner.
+\item CallableStatement – used for executing stored procedures on the database.
+\end{itemize}
+Update statements such as INSERT, UPDATE and DELETE return an update count that
+indicates how many rows were affected in the database. These statements do not return any
+other information. \\
+Query statements return a JDBC row result set. The row result set is used to walk over the
+result set. Individual columns in a row are retrieved either by name or by column number.
+There may be any number of rows in the result set. The row result set has metadata that
+describes the names of the columns and their types. \\
+There is an extension to the basic JDBC API in the javax.sql. \\ 
+JDBC connections are often managed via a connection pool rather than obtained directly
+from the driver.
 \thispagestyle{fancy}
 
-\section{Section 3}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
-
+\section{JDBC DRIVERS}
+JDBC drivers are client-side adapters (installed on the client machine, not on the
+server) that convert requests from Java programs to a protocol that the DBMS can
+understand. Types Commercial and free drivers provide connectivity to most relational-
+database servers. These drivers fall into one of the following types:
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+\item Type 1 that calls native code of the locally available ODBC driver.
+\item Type 2 that calls database vendor native library on a client side. This code then talks to database over the network.
+\item Type 3, the pure-java driver that talks with the server-side middleware that then talks to the database.
+\item Type 4, the pure-java driver that uses database native protocol.
+\end{enumerate}
+Note also a type called an internal JDBC driver - a driver embedded with JRE in Java-
+enabled SQL databases. It is used for Java stored procedures. \\[0.4in]
+\begin{large}
+\textbf{Steps to connect to the database in java} \\[0.2in]
+\end{large}
+There are 5 steps to connect any java application with the database in java using
+JDBC. They are as follows:
+\renewcommand{\theenumi}{\arabic{enumi}}
+\begin{enumerate}
+\item Register the driver class
+\item Creating connection
+\item Creating statement
+\item Executing queries
+\item Closing connection \\[0.2in]
+\end{enumerate}
+\begin{large}
+\textbf{Register the driver class} \\[0.2in]
+\end{large}
+The forName() method of Class class is used to register the driver class. This method is usedto dynamically load the driver class. \\
+Syntax of forName() method : \\
+public static void forName(String className )throws ClassNotFoundException . \\[0.4in]
+\begin{large}
+\textbf{Create the connection object \\[0.2in]}
+\end{large}
+The getConnection() method of DriverManager class is used to establish connection with the
+database. \\
+Syntax of getConnection() method: \\
+\begin{itemize}
+\item public static Connection getConnection(String url)throws SQLException
+\item public static Connection getConnection(String url,String name,String password)
+throws SQLException \\[0.2in]
+\end{itemize}
+\begin{large}
+\textbf{Create the Statement object} \\[0.2in]
+\end{large}
+The createStatement() method of Connection interface is used to create statement. The
+object of statement is responsible to execute queries with the database. \\
+Syntax of createStatement() method:\\
+public Statement createStatement()throws SQLException \\[0.2in]
+\begin{large}
+\textbf{Execute the query} \\[0.2in]
+\end{large}
+The executeQuery() method of Statement interface is used to execute queries to the
+database. This method returns the object of ResultSet that can be used to get all the records of a table. \\
+Syntax of executeQuery() method: \\
+public ResultSet executeQuery(String sql)throws SQLException \\[0.2in]
+\begin{large}
+\textbf{Close the connection object} \\[0.2in]
+\end{large}
+By closing connection object statement and ResultSet will be closed automatically.
+The close() method of Connection interface is used to close the connection.\\
+Syntax of close() method:\\
+public void close()throws SQLException
 \thispagestyle{fancy}
+\newpage
+\thispagestyle{fancy}
+\section{Pseudo Code For Major Functionalities}
+\rightarrow 
+\begin{large}
+\textbf{Authentication}\\[0.2in]
+\end{large}
+\thispagestyle{fancy}
+\begin{lstlisting}[language=Java]
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+/*
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
+/**
+*
+* @author Dhanushree
+*/
+public class Authentication extends javax.swing.JFrame {
+Connection conn;
+ResultSet rs;
+PreparedStatement pat;
+/**
+* Creates new form Authentication
+*/
+public Authentication() {
+super("Login");
+initComponents();
+conn=Javaconnect.ConnecrDb();
+}
+/**
+* This method is called from within the constructor to initialize the form.
+* WARNING: Do NOT modify this code. The content of this method is always
+* regenerated by the Form Editor.
+*/
+@SuppressWarnings("unchecked")
+// <editor-fold defaultstate="collapsed" desc="Generated Code">
+private void initComponents() {
+jPanel1 = new javax.swing.JPanel();
+jLabel5 = new javax.swing.JLabel();
+jButton2 = new javax.swing.JButton();
+jButton1 = new javax.swing.JButton();
+jTextField1 = new javax.swing.JTextField();
+jLabel6 = new javax.swing.JLabel();
+jLabel1 = new javax.swing.JLabel();
+jLabel2 = new javax.swing.JLabel();
+jTextField3 = new javax.swing.JTextField();
+jLabel3 = new javax.swing.JLabel();
+jLabel7 = new javax.swing.JLabel();
+setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+getContentPane().setLayout(null);
+jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory
+.createLineBorder(new java.awt.Color(102, 0, 0), 3), "Authentication",
+javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1,
+24), new java.awt.Color(102, 0, 0))); // NOI18N
+jPanel1.setLayout(null);
+jLabel5.setBackground(new java.awt.Color(0, 204, 204));
+jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e5.png"))); //
+NOI18N
+jPanel1.add(jLabel5);
+jLabel5.setBounds(480, 310, 30, 20);
+jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+jButton2.setForeground(new java.awt.Color(153, 0, 0));
+jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e11.png"))); //
+NOI18N
+jButton2.setText("New Account");
+jButton2.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+jButton2ActionPerformed(evt);
+}
+});
+jPanel1.add(jButton2);
+jButton2.setBounds(380, 380, 190, 35);
+jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+jButton1.setForeground(new java.awt.Color(153, 0, 0));
+jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e14.png"))); //
+NOI18N
+jButton1.setText("Login");
+jButton1.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+jButton1ActionPerformed(evt);
+}
+});
+jPanel1.add(jButton1);
+jButton1.setBounds(250, 380, 100, 37);
+jPanel1.add(jTextField1);
+jTextField1.setBounds(250, 250, 205, 20);
+jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e6.png"))); //
+NOI18N
+jPanel1.add(jLabel6);
+jLabel6.setBounds(480, 250, 22, 27);
+jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+jLabel1.setText("Enter Account No.");
+jPanel1.add(jLabel1);
+jLabel1.setBounds(40, 250, 164, 27);
+jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+jLabel2.setForeground(new java.awt.Color(0, 51, 153));
+jLabel2.setText("Pin");
+jPanel1.add(jLabel2);
+jLabel2.setBounds(90, 310, 46, 18);
+jTextField3.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+jTextField3ActionPerformed(evt);
+}
+});
+jPanel1.add(jTextField3);
+jTextField3.setBounds(250, 310, 205, 20);
+jLabel3.setBackground(new java.awt.Color(255, 204, 204));
+jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1.jpg"))); //
+NOI18N
+jPanel1.add(jLabel3);
+jLabel3.setBounds(20, 30, 230, 210);
+jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/89.jpg"))); //
+NOI18N
+jLabel7.setText("jLabel7");
+jPanel1.add(jLabel7);
+jLabel7.setBounds(260, 40, 340, 150);
+getContentPane().add(jPanel1);
+jPanel1.setBounds(0, 0, 660, 440);
+setSize(new java.awt.Dimension(679, 481));
+setLocationRelativeTo(null);
+}// </editor-fold>
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+// TODO add your handling code here:
+String sql="select * from Account where Acc=? and Pin=?";
+try{
+pat=conn.prepareStatement(sql);
+pat.setString(1,jTextField1.getText());
+pat.setString(2,jTextField3.getText());
+rs=pat.executeQuery();
+if(rs.next()){
+setVisible(false);
+Loading ob=new Loading();
+ob.setUpLoading();
+ob.setVisible(true);
+rs.close();
+pat.close();
+}
+else{
+JOptionPane.showMessageDialog(null, "incorrect Account No. or Pin");
+}
+}catch(Exception e){
+JOptionPane.showMessageDialog(null, e);
+}finally{
+try{
+rs.close();
+pat.close();
+}catch(Exception e){
+}
+}
+}
+private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {
+// TODO add your handling code here:
+}
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+// TODO add your handling code here:
+setVisible(false);
+Account ob= new Account();
+ob.setVisible(true);
+}
+/**
+* @param args the command line arguments
+*/
+public static void main(String args[]) {
+/* Set the Nimbus look and feel */
+//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and
+feel.
+* For details see
+http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+*/
+try {
+for (javax.swing.UIManager.LookAndFeelInfo info :
+javax.swing.UIManager.getInstalledLookAndFeels()) {
+/* if ("Nimbus".equals(info.getName())) {
+javax.swing.UIManager.setLookAndFeel(info.getClassName());
+break;*/
+UIManager.setLookAndFeel("com.jtatoo,plaf.smart.SmartLookAndFeel");
+}
+} catch (ClassNotFoundException ex) {
+java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Lev
+el.SEVERE, null, ex);
+} catch (InstantiationException ex) {
+java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Lev
+el.SEVERE, null, ex);
+} catch (IllegalAccessException ex) {
+java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Lev
+el.SEVERE, null, ex);
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Lev
+el.SEVERE, null, ex);
+}
+//</editor-fold>
+/* Create and display the form */
+java.awt.EventQueue.invokeLater(new Runnable() {
+public void run() {
+new Authentication().setVisible(true);
+}
+});
+}
+// Variables declaration - do not modify
+private javax.swing.JButton jButton1;
+private javax.swing.JButton jButton2;
+private javax.swing.JLabel jLabel1;
+private javax.swing.JLabel jLabel2;
+private javax.swing.JLabel jLabel3;
+private javax.swing.JLabel jLabel5;
+private javax.swing.JLabel jLabel6;
+private javax.swing.JLabel jLabel7;
+private javax.swing.JPanel jPanel1;
+private javax.swing.JTextField jTextField1;
+private javax.swing.JTextField jTextField3;
+// End of variables declaration
+}
+\end{lstlisting}
+\pagestyle{fancy}
+\vspace{0.2in}
+\rightarrow 
+\begin{large}
+\textbf{Account Creation}\\[0.2in]
+\end{large}
+import java.sql.Connection;\\
+import java.sql.PreparedStatement;\\
+import java.sql.ResultSet;\\
+import java.util.Random;\\
+import javax.swing.JOptionPane;\\
+/*\\
+* To change this license header, choose License Headers in Project Properties.\\
+* To change this template file, choose Tools | Templates\\
+* and open the template in the editor.\\
+*/\\
+/**\\
+*\\
+* @author Dhanushree\\
+*/\\
+public class Account extends javax.swing.JFrame {\\
+Connection conn;\\
+ResultSet rs;\\
+PreparedStatement pat;\\
+/**\\
+* Creates new form Account\\
+*/\\
+public Account() {\\
+super("Create Account");\\
+initComponents();\\
+conn=Javaconnect.ConnecrDb();\\
+RandomAcc();\\
+RandomMICR();\\
+RandomPin();\\
+}\\
+/**\\
+* This method is called from within the constructor to initialize the form.\\
+* WARNING: Do NOT modify this code. The content of this method is always\\
+* regenerated by the Form Editor.\\
+*/\\
+@SuppressWarnings("unchecked")\\
+// <editor-fold defaultstate="collapsed" desc="Generated Code">\\
+private void initComponents() {\\
+buttonGroup1 = new javax.swing.ButtonGroup();\\
+jPanel2 = new javax.swing.JPanel();\\
+jPanel1 = new javax.swing.JPanel();\\
+jRadioButton2 = new javax.swing.JRadioButton();\\
+jComboBox1 = new javax.swing.JComboBox<>();\\
+jTextField1 = new javax.swing.JTextField();\\
+jRadioButton1 = new javax.swing.JRadioButton();\\
+jTextField5 = new javax.swing.JTextField();\\
+jTextField6 = new javax.swing.JTextField();\\
+jLabel13 = new javax.swing.JLabel();\\
+jLabel12 = new javax.swing.JLabel();\\
+jTextField4 = new javax.swing.JTextField();\\
+jLabel3 = new javax.swing.JLabel();\\
+jLabel11 = new javax.swing.JLabel();\\
+jLabel10 = new javax.swing.JLabel();\\
+jComboBox2 = new javax.swing.JComboBox<>();\\
+jButton1 = new javax.swing.JButton();\\
+jLabel5 = new javax.swing.JLabel();\\
+jLabel7 = new javax.swing.JLabel();\\
+jTextField2 = new javax.swing.JTextField();\\
+jLabel8 = new javax.swing.JLabel();\\
+jTextField10 = new javax.swing.JTextField();\\
+jLabel15 = new javax.swing.JLabel();\\
+jButton2 = new javax.swing.JButton();\\
+jLabel2 = new javax.swing.JLabel();\\
+jTextField8 = new javax.swing.JTextField();\\
+jLabel14 = new javax.swing.JLabel();\\
+jTextField3 = new javax.swing.JTextField();\\
+jTextField7 = new javax.swing.JTextField();\\
+jLabel6 = new javax.swing.JLabel();\\
+jLabel9 = new javax.swing.JLabel();\\
+jButton4 = new javax.swing.JButton();\\
+jLabel16 = new javax.swing.JLabel();\\
+jTextField11 = new javax.swing.JTextField();\\
+jComboBox3 = new javax.swing.JComboBox<>();\\
+jLabel1 = new javax.swing.JLabel();\\
+jLabel4 = new javax.swing.JLabel();\\
 
-\section{Section 4}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
-
+jPanel2.setBackground(new java.awt.Color(0, 204, 204));\\
+jPanel1.setBackground(new java.awt.Color(255, 255, 255));\\
+jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory\\
+buttonGroup1.add(jRadioButton2);\\
+jRadioButton2.setText("Female");\\
+jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {\\
+"Select", "Saving", "Current" }));\\
+jComboBox1.addActionListener(new java.awt.event.ActionListener() {\\
+public void actionPerformed(java.awt.event.ActionEvent evt) {\\
+jComboBox1ActionPerformed(evt);\\
+}\\
+});\\
+jTextField1.setEditable(false);\\
+buttonGroup1.add(jRadioButton1);\\
+jRadioButton1.setText("Male");\\
+jRadioButton1.addActionListener(new java.awt.event.ActionListener() {\\
+public void actionPerformed(java.awt.event.ActionEvent evt) {\\
+jRadioButton1ActionPerformed(evt);\\
+}\\
+});\\
+jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel13.setText("Security Q.");\\
+jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel12.setText("Mobile No.");\\
+jTextField4.addActionListener(new java.awt.event.ActionListener() {\\
+public void actionPerformed(java.awt.event.ActionEvent evt) {\\
+jTextField4ActionPerformed(evt);\\
+}\\
+});\\
+jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel3.setText("MICR No.");\\
+jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel11.setText("Caste");\\
+jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel10.setText("Nationality");\\
+jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {\\
+"Select", "Hindu", "Muslim", "Cristian" }));\\
+jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N\\
+jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e11.png"))); //
+NOI18N\\
+jButton1.setText("Create");\\
+jButton1.addActionListener(new java.awt.event.ActionListener() {\\
+public void actionPerformed(java.awt.event.ActionEvent evt) {\\
+jButton1ActionPerformed(evt);\\
+}\\
+});\\
+jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel5.setText("Account Type");\\
+jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N\\
+jLabel7.setText("Address");\\
 \thispagestyle{fancy}

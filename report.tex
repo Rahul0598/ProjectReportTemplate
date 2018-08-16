@@ -9,10 +9,28 @@
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+
+
+\usepackage{listings}
+\lstset{frame=tb,
+  language=Java,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} 
 
 \usepackage{etoolbox} % enable fancyhdr on chapter pages.
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\patchcmd{\lstlisting}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 \renewcommand\bibname{References}
 
@@ -32,6 +50,8 @@
 \definecolor{black}{RGB}{0, 0, 0}
 
 \renewcommand{\headrule}{\hbox to\headwidth{\color{darkbrown}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{darkbrown}\leaders\hrule height \footrulewidth\hfill}}
+
 
 \renewcommand{\contentsname}{\centering Contents}
 
