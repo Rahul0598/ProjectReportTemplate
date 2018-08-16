@@ -1,12 +1,42 @@
 \chapter{Introduction}
 
-\section{Section 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
+\section{DATABASE TECHNOLOGIES}
+The essential feature of database technology is that it provides an internal representation (model) of the external world of interest. Examples are the representation of a particular date/time/flight/aircraft in airline reservation or of item code/item description/quantity on hand/reorder level/reorder quantity in a stock control system. The technology involved is concerned primarily with maintaining the internal representation consistent with external reality; this involves the results of extensive Research and Development over the past 30 years in areas such as user requirements analysis, data modeling, process modeling, data integrity, concurrency, transactions, file organization, indexing, rollback and recovery, persistent programming, object-orientation, logic programming, deductive database systems, active database systems... and in all these (and other) areas there remains much to be done. The essential point is that database technology is a CORE TECHNOLOGY with links to:
+\begin{itemize}
+\item{Information management / processing}
+\item{Data analysis / statistics}
+\item{Data visualization / presentation}
+\item{Multimedia and hypermedia}
+\item{Office and document systems}
+\item{Business processes, workflow, CSCW (computer-supported cooperative work)}
+\end{itemize}
+Relational DBMS is the modern base technology for many business applications. It offers flexibility and easy-to-use tools at the expense of ultimate performance. More recently relational systems have started to extend their facilities in the directions of information retrieval, object-orientation and deductive/active systems leading to the so-called 'Extended
+Relational Systems'.
+
+Information Retrieval Systems started with handling library catalogues and extended to full free-text utilizing inverted index technology with a lexicon or thesaurus. Modern systems utilize some KBS (knowledge-based systems) techniques to improve retrieval.
+
+Object-Oriented DBMS started for engineering applications where objects are complex,
+have versions and need to be treated as a complete entity. OODBMSs share many of the OOPL features such as identity, inheritance, late binding, overloading and overriding.
+OODBMSs have found favour in engineering and office systems but have not yet been successful in traditional application areas. Deductive / Active DBMS have emerged over the last 20 years and combine logic programming technology with database technology. This allows the database itself to react to external events to maintain dynamically its integrity with respect to the real world.
 
 \thispagestyle{fancy}
 
-\section{Section 2}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus gravida odio nec sodales. Vivamus at sollicitudin dolor. Curabitur a quam eu tortor elementum consectetur. Fusce eget velit enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sed sagittis enim. Integer in tempus tellus. Donec accumsan est at ante pellentesque, eu dapibus nisi convallis. Pellentesque semper orci eget nulla scelerisque fermentum. Aenean vel feugiat tortor.
+\section{CHARACTERISTICS OF DATABASE APPROACH}
+Traditionally, data was organized in file formats. DBMS was a new concept then, and all the research was done to make it overcome the deficiencies in traditional style of data management. A modern DBMS has the following characteristics:
+\begin{itemize}
+\item{Real-world entity} − A modern DBMS is more realistic and uses real-world entities to design its architecture. It uses the behavior and attributes too. For example, a school database may use students as an entity and their age as an attribute.
+\item{Relation-based tables} − DBMS allows entities and relations among them to form tables. A user can understand the architecture of a database just by looking at the table names.
+\item{Isolation of data and application} − A database system is entirely different than its data. A database is an active entity, whereas data is said to be passive, on which the database works and organizes. DBMS also stores metadata, which is data about data, to ease its own process.}
+\item{Less redundancy} − DBMS follows the rules of normalization, which splits a relation when any of its attributes is having redundancy in values. Normalization is a mathematically rich and scientific process that reduces data redundancy.
+\item{Consistency} − Consistency is a state where every relation in a database remains consistent. There exist methods and techniques, which can detect attempt of leaving database in inconsistent state. A DBMS can provide greater consistency as compared to earlier forms of data storing applications like file-processing systems.
+\item{Query Language} − DBMS is equipped with query language, which makes it more efficient to retrieve and manipulate data. A user can apply as many and as different filtering options as required to retrieve a set of data. Traditionally it was not possible where file-processing system was used.
+\item{ACID Properties} − DBMS follows the concepts of Atomicity, Consistency, Isolation, and Durability (normally shortened as ACID). These concepts are applied on transactions, which manipulate data in a database. ACID properties help the database
+stay healthy in multi-transactional environments and in case of failure.
+\item{Multiuser and Concurrent Access} − DBMS supports multi-user environment and allows them to access and manipulate data in parallel. Though there are restrictions on transactions when users attempt to handle the same data item, but users are always unaware of them.
+\item{Multiple views} − DBMS offers multiple views for different users. A user who is in the Sales department will have a different view of database than a person working in the Production department. This feature enables the users to have a concentrate view of the database according to their requirements.
+\item{Security} − Features like multiple views offer security to some extent where users are unable to access data of other users and departments. DBMS offers methods to impose constraints while entering data into the database and retrieving the same at a later stage. DBMS offers many different levels of security features, which enables multiple users to have different views with different features. For example, a user in the Sales department cannot see the data that belongs to the Purchase department.
+Additionally, it can also be managed how much data of the Sales department should be displayed to the user. Since a DBMS is not saved on the disk as traditional file systems, it is very hard for miscreants to break the code.
+\end{itemize}
 
 \thispagestyle{fancy}
 
