@@ -1,46 +1,27 @@
-\chapter{Introduction}
+\chapter{INTRODUCTION TO DATABASE MANAGEMENT SYSTEM}
 
-\section{DATABASE TECHNOLOGIES}
-The essential feature of database technology is that it provides an internal representation (model) of the external world of interest. Examples are the representation of a particular date/time/flight/aircraft in airline reservation or of item code/item description/quantity on hand/reorder level/reorder quantity in a stock control system. The technology involved is concerned primarily with maintaining the internal representation consistent with external reality; this involves the results of extensive Research and Development over the past 30 years in areas such as user requirements analysis, data modeling, process modeling, data integrity, concurrency, transactions, file organization, indexing, rollback and recovery, persistent programming, object-orientation, logic programming, deductive database systems, active database systems... and in all these (and other) areas there remains much to be done. The essential point is that database technology is a CORE TECHNOLOGY with links to:
+\section{Introduction}
+Databases and database technology have a major impact on the growing use of computers. It is fair to say that databases play a critical role in almost all areas where computers are used, including business, electronic commerce, engineering, medicine, genetics, law, education, and library science. The word database is so commonly used that we must begin by defining what a database is. Our initial definition is quite general. A database is a collection of related data.1 By data, we mean known facts that can be recorded and that have implicit meaning. For example, consider the names, telephone numbers, and addresses of the people you know. You may have recorded this data in an indexed address book or you may have stored it on a hard drive, using a personal computer and software such as Microsoft Access or Excel. This collection of related data with an implicit meaning is a database. The preceding definition of database is quite general; for example, we may consider the collection of words that make up this page of text to be related data and hence to constitute a database. However, the common use of the term database is usually more restricted. 
+A database has the following implicit properties:
+
 \begin{itemize}
-\item{Information management / processing}
-\item{Data analysis / statistics}
-\item{Data visualization / presentation}
-\item{Multimedia and hypermedia}
-\item{Office and document systems}
-\item{Business processes, workflow, CSCW (computer-supported cooperative work)}
+\item{A database represents some aspect of the real world, sometimes called the miniworld or the universe of discourse (UoD). Changes to the miniworld are reflected in the database.}
+\item{A database is a logically coherent collection of data with some inherent meaning. A random assortment of data cannot correctly be referred to as a database}
+\item{A database is designed, built, and populated with data for a specific purpose. It has an intended group of users and some preconceived applications in which these users are interested}
 \end{itemize}
-Relational DBMS is the modern base technology for many business applications. It offers flexibility and easy-to-use tools at the expense of ultimate performance. More recently relational systems have started to extend their facilities in the directions of information retrieval, object-orientation and deductive/active systems leading to the so-called 'Extended
-Relational Systems'.
-
-Information Retrieval Systems started with handling library catalogues and extended to full free-text utilizing inverted index technology with a lexicon or thesaurus. Modern systems utilize some KBS (knowledge-based systems) techniques to improve retrieval.
-
-Object-Oriented DBMS started for engineering applications where objects are complex,
-have versions and need to be treated as a complete entity. OODBMSs share many of the OOPL features such as identity, inheritance, late binding, overloading and overriding.
-OODBMSs have found favour in engineering and office systems but have not yet been successful in traditional application areas. Deductive / Active DBMS have emerged over the last 20 years and combine logic programming technology with database technology. This allows the database itself to react to external events to maintain dynamically its integrity with respect to the real world.
+A database management system (DBMS) is a collection of programs that enables users to create and maintain a database. The DBMS is a general-purpose software system that facilitates the processes of defining, constructing, manipulating, and sharing databases among various users and applications. Defining a database involves specifying the data types, structures, and constraints of the data to be stored in the database. The database definition or descriptive information is also stored by the DBMS in the form of a database catalog or dictionary; it is called meta-data. Constructing the database is the process of storing the data on some storage medium that is controlled by the DBMS. Manipulating a database includes functions such as querying the database to retrieve specific data, updating the database to reflect changes in the miniworld, and generating reports from the data. Sharing a database allows multiple users and programs to access the database simultaneously.
 
 \thispagestyle{fancy}
 
-\section{CHARACTERISTICS OF DATABASE APPROACH }
-Traditionally, data was organized in file formats. DBMS was a new concept then, and all the research was done to make it overcome the deficiencies in traditional style of data management. A modern DBMS has the following characteristics:
-\begin{itemize}
-\item{Real-world entity} − A modern DBMS is more realistic and uses real-world entities to design its architecture. It uses the behavior and attributes too. For example, a school database may use students as an entity and their age as an attribute.
-\item{Relation-based tables} − DBMS allows entities and relations among them to form tables. A user can understand the architecture of a database just by looking at the table names.
-\item{Isolation of data and application} − A database system is entirely different than its data. A database is an active entity, whereas data is said to be passive, on which the database works and organizes. DBMS also stores metadata, which is data about data, to ease its own process.
-\item{Less redundancy} − DBMS follows the rules of normalization, which splits a relation when any of its attributes is having redundancy in values. Normalization is a mathematically rich and scientific process that reduces data redundancy.
-\item{Consistency} − Consistency is a state where every relation in a database remains consistent. There exist methods and techniques, which can detect attempt of leaving database in inconsistent state. A DBMS can provide greater consistency as compared to earlier forms of data storing applications like file-processing systems.
-\item{Query Language} − DBMS is equipped with query language, which makes it more efficient to retrieve and manipulate data. A user can apply as many and as different filtering options as required to retrieve a set of data. Traditionally it was not possible where file-processing system was used.
-\item{ACID Properties} − DBMS follows the concepts of Atomicity, Consistency, Isolation, and Durability (normally shortened as ACID). These concepts are applied on transactions, which manipulate data in a database. ACID properties help the database
-stay healthy in multi-transactional environments and in case of failure.
-\item{Multiuser and Concurrent Access} − DBMS supports multi-user environment and allows them to access and manipulate data in parallel. Though there are restrictions on transactions when users attempt to handle the same data item, but users are always unaware of them.
-\item{Multiple views} − DBMS offers multiple views for different users. A user who is in the Sales department will have a different view of database than a person working in the Production department. This feature enables the users to have a concentrate view of the database according to their requirements.
-\item{Security} − Features like multiple views offer security to some extent where users are unable to access data of other users and departments. DBMS offers methods to impose constraints while entering data into the database and retrieving the same at a later stage. DBMS offers many different levels of security features, which enables multiple users to have different views with different features. For example, a user in the Sales department cannot see the data that belongs to the Purchase department.
-Additionally, it can also be managed how much data of the Sales department should be displayed to the user. Since a DBMS is not saved on the disk as traditional file systems, it is very hard for miscreants to break the code.
-\end{itemize}
+\section{History of dbms }
+In 1959, the TX-2 computer was developed at MIT's Lincoln Laboratory. The TX-2 integrated a number of new man-machine interfaces. A light pen could be used to draw sketches on the computer using Ivan Sutherland's revolutionary Sketchpad software.[4] Using a light pen, Sketchpad allowed one to draw simple shapes on the computer screen, save them and even recall them later. The light pen itself had a small photoelectric cell in its tip. This cell emitted an electronic pulse whenever it was placed in front of a computer screen and the screen's electron gun fired directly at it. By simply timing the electronic pulse with the current location of the electron gun, it was easy to pinpoint exactly where the pen was on the screen at any given moment. Once that was determined, the computer could then draw a cursor at that location. Also in 1961 another student at MIT, Steve Russell, created the first video game, E. E. Zajac, a scientist at Bell Telephone Laboratory (BTL), created a film called "Simulation of a two-giro gravity attitude control system" in 1963. 
+During 1970s, the first major advance in 3D computer graphics was created at UU by these early pioneers, the hidden-surface algorithm. In order to draw a representation of a 3D object on the screen, the computer must determine which surfaces are "behind" the object from the viewer's perspective, and thus should be "hidden" when the computer creates (or renders) the image. 
+In the 1980s, artists and graphic designers began to see the personal computer, particularly the Commodore Amiga and Macintosh, as a serious design tool, one that could save time and draw more accurately than other methods. In the late 1980s, SGI computers were used to create some of the first fully computer-generated short films at Pixar. The Macintosh remains a highly popular tool for computer graphics among graphic design studios and businesses. Modern computers, dating from the 1980s often use graphical user interfaces (GUI) to present data and information with symbols, icons and pictures, rather than text. Graphics are one of the five key elements of multimedia technology. 
+3D graphics became more popular in the 1990s in gaming, multimedia and animation. In 1996, Quake, one of the first fully 3D games, was released. In 1995, Toy Story, the first full-length computer-generated animation film, was released in cinemas worldwide. Since then, computer graphics have only become more detailed and realistic, due to more powerful graphics hardware and 3D modelling software.
 
 \thispagestyle{fancy}
 
-\section{APPLICATIONS OF DBMS}
+\section{Applications of DBMS}
 Applications where we use Database Management Systems are: \\
 \begin{itemize}
 \item \textbf{Telecom:} There is a database to keeps track of the information regarding calls made, network usage, customer details etc. Without the database systems it is hard to
@@ -62,27 +43,4 @@ query. All this involves a Database management system.
 \end{itemize}
 \thispagestyle{fancy}
 \newpage
-\section{PROBLEM DESCRIPTION/STATEMENT}
-Online Bank Management System is very simple and entry level project developed in
-java using jdbc technology. We have used database to store all the details of customer
-account in table.This System is a simple project and useful for those who want to learn
-java/servlets with jdbc.\\
-Online Banking System provides is specifically developed for online banking for
-Balance Enquiry, Funds Transfer to another account in the same bank, of Mini
-statements(Viewing Monthly and annual statements) .The Traditional way of maintaining
-details of auser in a bank was to enter the details and rerecord them. Every time the user
-need toper form some transactions he has to go to bank and perform the necessary
-actions, which may not be so feasible all the time.It may be a hard-hitting task for the
-users and the bankers too.The project gives real life understanding of Online Banking
-System and activities performed by various roles in the supply chain.Here,we provide an
-automation for banking system through Internet.Online Banking System project captures
-activities performed by different roles in real life banking which provides enhanced
-techniques for maintaining there quired information up to date,which results
-inefficiency.The project gives real life understanding of Online Banking System and
-activities performed by various roles in the supply chain. Online Bank Account
-Management System keeps the day by day tally record as a complete banking system. It
-can keep the information of Account type, account opening form, Deposit fund,
-Withdrawal, and Searching the transaction, Transaction reports, Individual account
-opening form, Group Account. The existing part of this project is; it displays Transaction
-reports, Statistical Summary of Account type and Interest Information.
 \thispagestyle{fancy}

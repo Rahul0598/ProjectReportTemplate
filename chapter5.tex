@@ -1,31 +1,61 @@
-\chapter{Results, Snapshots and Discussions}
+\chapter{JAVA DATABASE CONNECTIVITY}
+Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database. It is Java based data access technology and used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. It provides methods to query and update data in a database, and is oriented towards relational databases. A JDBC-to-ODBC bridge enables connections to any ODBC-accessible data source in the Java virtual machine (JVM) host environment.\\
+\section{Functionality}
+JDBC allows multiple implementations to exist and be used by the same application. The API provides a mechanism for dynamically loading the correct Java packages and registering them with the JDBC Driver Manager. The Driver Manager is used as a connection factory for creating JDBC connections.\\
+JDBC connections support creating and executing statements. These may be update statements such as SQL's CREATE, INSERT, UPDATE and DELETE, or they may be query statements such as SELECT. Additionally, stored procedures may be invoked through a JDBC connection. JDBC represents statements using one of the following classes:
+\begin{itemize}
+\item{Statement – the statement is sent to the database server each and every time.}
+\item{PreparedStatement – the statement is cached and then the execution path is pre-determined on the database server allowing it to be executed multiple times in an efficient manner.}
+\item{CallableStatement – used for executing stored procedures on the database.}
+\end{itemize}
+Update statements such as INSERT, UPDATE and DELETE return an update count that indicates how many rows were affected in the database. These statements do not return any other information.\\
+Query statements return a JDBC row result set. The row result set is used to walk over the result set. Individual columns in a row are retrieved either by name or by column number. There may be any number of rows in the result set. The row result set has metadata that describes the names of the columns and their types.
+There is an extension to the basic JDBC API in the javax.sql.\\
+JDBC connections are often managed via a connection pool rather than obtained directly from the driver.\\
+\section{JDBC Drivers}
+JDBC drivers are client-side adapters (installed on the client machine, not on the server) that convert requests from Java programs to a protocol that the DBMS can understand.
+Types:
+Commercial and free drivers provide connectivity to most relational-database servers. These drivers fall into one of the following types:
+\begin{enumerate}
+\item{Type 1 that calls native code of the locally available ODBC driver. }
+\item{Type 2 that calls database vendor native library on a client side. This code then talks to database over the network.}
+\item{Type 3, the pure-java driver that talks with the server-side middleware that then talks to the database.}
+\item{Type 4, the pure-java driver that uses database native protocol.}\\
+\end{enumerate}
+Note also a type called an internal JDBC driver - a driver embedded with JRE in Java-enabled SQL databases. It is used for Java stored procedures.\\
 
-\section{Section 1}
-To login we should enter the Account No. and Pin if the account already exits and then click
-the login button or else If we want to create a new account we can directly click on New
-Account button. After we click on the Login button it directs to loading page to load the
-information about the customer. After login the details of the customer will be displayed. We
-can also edit and save some fields. we can deposit the amount the amount which is deposited
-will be updated in the balance. we can transfer the amount from one account to another we
-can withdraw the amount the amount which is withdraw will be updated in the balance. It
-shows the list of the customer. It shows the transaction details. It shows the balance details of
-the customer. The customer can change their old pin to new pin and after changing the pin it
-will be updated.\\[0.2in]
-\begin{figure}[H]
-\centering
-\includegraphics[scale=.5]{./loginPage.png}
-\caption{Login Page}
-\label{fig:Login Page}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale=.5]{./loadingPage.png}]
-\caption{Loading Page}
-\label{fig:Loading Page}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[scale=.5]{./profilePage.png}
-\caption{Profile Page}
-\label{fig:Profile Page}
-\end{figure}
+\section{5 Steps to connect to the database in java}
+There are 5 steps to connect any java application with the database in java using JDBC. They are as follows: 
+\begin{itemize}
+\item{Register the driver class }
+\item{Creating connection} 
+\item{Creating statement} 
+\item{Executing queries} 
+\item{Closing connection}
+\end{itemize}
+\begin{enumerate}
+	\item{Register the driver class\\
+	The forName() method of Class class is used to register the driver class. This method is used to dynamically load the driver class. 
+	Syntax of forName() method: 	
+		public static void forName(String className throws ClassNotFoundException  }
+	\item{Create the connection object\\
+	The getConnection() method of DriverManager class is used to establish connection with the database. 
+	Syntax of getConnection() method:}
+	\begin{enumerate}
+		\item{public static Connection getConnection(String url)throws SQLException }
+		\item{public static Connection getConnection(String url,String name,String password) throws SQLException}
+	\end{enumerate}
+	\item{Create the Statement object\\
+	The createStatement() method of Connection interface is used to create statement. The object of statement is responsible to execute queries with the database. 
+	Syntax of createStatement() method:
+ 		public Statement createStatement()throws SQLException}
+  	\item{Execute the query\\
+	The executeQuery() method of Statement interface is used to execute queries to the database. This method returns the object of ResultSet that can be used to get all the records of 	a table. 
+	Syntax of executeQuery() method:
+    	public ResultSet executeQuery(String sql)throws SQLException  }
+	\item{Close the connection object\\
+	By closing connection object statement and ResultSet will be closed automatically. The close() method of Connection interface is used to close the connection. 
+	Syntax of close() method:
+      		public void close()throws SQLException }
+\end{enumerate}
+
