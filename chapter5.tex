@@ -1,61 +1,18 @@
-\chapter{JAVA DATABASE CONNECTIVITY}
-Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database. It is Java based data access technology and used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. It provides methods to query and update data in a database, and is oriented towards relational databases. A JDBC-to-ODBC bridge enables connections to any ODBC-accessible data source in the Java virtual machine (JVM) host environment.\\
-\section{Functionality}
-JDBC allows multiple implementations to exist and be used by the same application. The API provides a mechanism for dynamically loading the correct Java packages and registering them with the JDBC Driver Manager. The Driver Manager is used as a connection factory for creating JDBC connections.\\
-JDBC connections support creating and executing statements. These may be update statements such as SQL's CREATE, INSERT, UPDATE and DELETE, or they may be query statements such as SELECT. Additionally, stored procedures may be invoked through a JDBC connection. JDBC represents statements using one of the following classes:
-\begin{itemize}
-\item{Statement – the statement is sent to the database server each and every time.}
-\item{PreparedStatement – the statement is cached and then the execution path is pre-determined on the database server allowing it to be executed multiple times in an efficient manner.}
-\item{CallableStatement – used for executing stored procedures on the database.}
-\end{itemize}
-Update statements such as INSERT, UPDATE and DELETE return an update count that indicates how many rows were affected in the database. These statements do not return any other information.\\
-Query statements return a JDBC row result set. The row result set is used to walk over the result set. Individual columns in a row are retrieved either by name or by column number. There may be any number of rows in the result set. The row result set has metadata that describes the names of the columns and their types.
-There is an extension to the basic JDBC API in the javax.sql.\\
-JDBC connections are often managed via a connection pool rather than obtained directly from the driver.\\
-\section{JDBC Drivers}
-JDBC drivers are client-side adapters (installed on the client machine, not on the server) that convert requests from Java programs to a protocol that the DBMS can understand.
-Types:
-Commercial and free drivers provide connectivity to most relational-database servers. These drivers fall into one of the following types:
-\begin{enumerate}
-\item{Type 1 that calls native code of the locally available ODBC driver. }
-\item{Type 2 that calls database vendor native library on a client side. This code then talks to database over the network.}
-\item{Type 3, the pure-java driver that talks with the server-side middleware that then talks to the database.}
-\item{Type 4, the pure-java driver that uses database native protocol.}\\
-\end{enumerate}
-Note also a type called an internal JDBC driver - a driver embedded with JRE in Java-enabled SQL databases. It is used for Java stored procedures.\\
+\chapter{Flask-SQLite Database Connectivity}
+Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. However, Flask supports extensions that can add application features as if they were implemented in Flask itself. Extensions exist for object-relational mappers, form validation, upload handling, various open authentication technologies and several common framework related tools. Extensions are updated far more regularly than the core Flask program. Flask is commonly used with MongoDB, which gives it more control over databases and history.
 
-\section{5 Steps to connect to the database in java}
-There are 5 steps to connect any java application with the database in java using JDBC. They are as follows: 
+Applications that use the Flask framework include Pinterest, LinkedIn, and the community web page for Flask itself.\\
+\section{Database Schema}
+In Flask we need only a single table for the application and it will support SQLite. All we need to do is put the contents of the .sql file in the same folder where program.py file id there.
+\\
+\section{5 Steps to connect to the database in flask}
+There are 5 steps to connect any flask application with the database in sqlite. They are as follows: 
 \begin{itemize}
-\item{Register the driver class }
-\item{Creating connection} 
-\item{Creating statement} 
-\item{Executing queries} 
+\item{Import the dependencies }
+\item{Open a connection to an SQLite database file} 
+\item{Load the data from the dataframe into the database} 
+\item{Make functions to execute different SQL queries} 
 \item{Closing connection}
 \end{itemize}
-\begin{enumerate}
-	\item{Register the driver class\\
-	The forName() method of Class class is used to register the driver class. This method is used to dynamically load the driver class. 
-	Syntax of forName() method: 	
-		public static void forName(String className throws ClassNotFoundException  }
-	\item{Create the connection object\\
-	The getConnection() method of DriverManager class is used to establish connection with the database. 
-	Syntax of getConnection() method:}
-	\begin{enumerate}
-		\item{public static Connection getConnection(String url)throws SQLException }
-		\item{public static Connection getConnection(String url,String name,String password) throws SQLException}
-	\end{enumerate}
-	\item{Create the Statement object\\
-	The createStatement() method of Connection interface is used to create statement. The object of statement is responsible to execute queries with the database. 
-	Syntax of createStatement() method:
- 		public Statement createStatement()throws SQLException}
-  	\item{Execute the query\\
-	The executeQuery() method of Statement interface is used to execute queries to the database. This method returns the object of ResultSet that can be used to get all the records of 	a table. 
-	Syntax of executeQuery() method:
-    	public ResultSet executeQuery(String sql)throws SQLException  }
-	\item{Close the connection object\\
-	By closing connection object statement and ResultSet will be closed automatically. The close() method of Connection interface is used to close the connection. 
-	Syntax of close() method:
-      		public void close()throws SQLException }
-\end{enumerate}
+
 

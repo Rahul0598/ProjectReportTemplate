@@ -3,7 +3,7 @@
 \section{Hardware Requirements}
 The Hardware requirements are very minimal and the program can be run on most of
 the machines. \\
-Processor : Pentium4 processor\\
+Processor : Intel Atom® processor or Intel® Core™ i3 processor\\
 Processor Speed : 2.4 GHz\\
 RAM : 1 GB\\
 Storage Space : 40 GB\\
@@ -11,70 +11,40 @@ Monitor Resolution : 1024*768 or 1336*768 or 1280*1024\\
 \thispagestyle{fancy}
 
 \section{Software Requirements}
-Operating System - Windows XP\\
-IDE - MYSQL Workbench,Eclipse\\
-Additional tool - NetBeans\\
+Operating System - Windows 7 or later\\
+Text Editor - Atom\\
+SQL - SQLite3\\
+Language - Python3.7.x\\
+Browser - Any one which supports HTML and JavaScript\\
+Additional tool - DB Browser\\
 \thispagestyle{fancy}
-
+\pagebreak
 \section{Functional Requirements}
 \subsection{Major Entities}
-\textbf{ACCOUNT}: Account in which the detail of account holders will be stored.\\
-\textbf{DEPOSIT}: We can store deposit details in the deposit entity or table.\\
-\textbf{New\_pin}: We can change user pin and the new pin will updated in change\_pin entity.\\
-\textbf{TRANSFER}: Customer can find their transfer detail in the transfer table or entity.\\
-\textbf{WITHDRAW}: Customer can withdraw money and can find the detail of withdraw in withdraw table.\\
-\textbf{PIN\_UPDATE\_RECORD}: Customer can know about the new\_pin updation by
-pin\_update\_record entity.\\
+\textbf{STUDENT}: To store or modify the student details in student entity or table.\\
+\textbf{TEACHER}: We can store or modify the teacher details in student entity or table.\\
+\textbf{ATTENDANCE}: To store the attendance details of the student.\\
+\textbf{MARKSHEET}: To store the marks scored by the students in internal examinations and calculation of the average marks.\\
+\textbf{Subject}: To store the details of the courses given by the university and other details like credits, elective, semester to be taken in, etc.\\
+\textbf{BRANCH}: To store and update the list of Branch and Semester to identify unique tuples for faster access.\\
+\textbf{TEACHES}: To store the details of the subjects taught in the relevant semesters.\\
+
 \thispagestyle{fancy}
 
 \subsection{End User Requirements}
 \begin{enumerate}
 \item Main Goals:
 	\begin{itemize}
-	\item Our motto is to develop a software program for managing the entire bank process
-related to Administration accounts customer accounts and to keep each every track about
-their property and their various transaction processes efficiently.
-	\item Hereby, our main objective is the customers satisfaction considering todays faster in
-the world
+	\item Our motto is to develop a software program for managing the entire college process related to student and teacher accounts and to keep each every track about their data like marksheet and classes and their various transaction processes efficiently.
+	\item Hereby, our main objective is the ease of accces of important data considering how fast the data exchange takes place.
 	\end{itemize}
-\item Customer Satisfaction:
+\item Ease of access:
 	\begin{itemize}
-	\item Client can do his operations comfortably without any risk or losing of his privacy.
-	\item Our software will perform and fulfill all the tasks that any customer would desire.
+	\item The details can be easily added, deleted or updated without any hassle.
+	\item Our software will perform and fulfill all the tasks that any administrator would desire.
 	\end{itemize}		
-\item Saving Customer Time:
+\item Saving Lookup Time:
 	\begin{itemize}
-	\item Client doesn't need to go to the bank to do small operation.	\end{itemize}
+	\item The person looking for the information doesn't need to go through the whole database to do small operation.	\end{itemize}
 \end{enumerate}
-\thispagestyle{fancy}
-
-\subsection{Java Swings and Applets}
-A Java applet is a small application that is written in the Java programming
-language, or another programming language that compiles to Java byte code, and delivered to
-users in the form of Java byte code. The user launches the Java applet from a web page, and
-the applet is then executed within a Java virtual machine (JVM) in a process separate from
-the web browser itself. A Java applet can appear in a frame of the web page, a new
-application window, Sun's AppletViewer, or a stand-alone tool for testing applets. Java
-applets were introduced in the first version of the Java language, which was released in
-1995.Java applets are usually written in Java, but other languages such as Jython, JRuby,
-Pascal, Scala, or Eiffel (via SmartEiffel)may be used as well.\\
-Java applets run at very fast speeds and, until 2011, they were many times faster than
-JavaScript. [11] Unlike JavaScript, Java applets had access to 3D hardware acceleration,
-making them well-suited for non-trivial, computation-intensive visualizations. As browsers
-have gained support for hardware-accelerated graphics thanks to the canvas technology (or
-specifically WebGL in the case of 3D graphics), as well as just-in-time compiled JavaScript,
-the speed difference has become less noticeable. Since Java bytecode is cross-platform (or
-platform independent), Java applets can be executed by browsers (or other clients) for many
-platforms, including Microsoft Windows, FreeBSD, Unix, macOS and Linux. Java applet
-technology has been marked for deprecation.\\
-The Applets are used to provide interactive features to web applications that cannot be
-provided by HTML alone. They can capture mouse input and also have controls like buttons
-or check boxes. In response to user actions, an applet can change the provided graphic
-content. This makes applets well-suited for demonstration, visualization, and teaching. There
-are online applet collections for studying various subjects, from physics to heart physiology.
-An applet can also be a text area only; providing, for instance, a cross-platform command-
-line interface to some remote system. If needed, an applet can leave the dedicated area and
-run as a separate window. However, applets have very little control over web page content
-outside the applet's dedicated area, so they are less useful for improving the site appearance in general, unlike other types of browser extensions Applets can also play media in formats that are not natively supported by the browser.\\
-
 \thispagestyle{fancy}

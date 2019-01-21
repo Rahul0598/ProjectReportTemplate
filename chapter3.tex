@@ -1,31 +1,29 @@
 \chapter{Database Design}
 
 \section{Entities, Attributes and Relationships}
-The database, called a bank, will have two tables, one called accounts and the other called
-customer. Each will hold information about either the account or the customer. The two
-tables will be linked through a foreign key. The customer table has the following fields:\\
+The database, called data, will have seven tables, teacher, student, class, subjects, courses, marksheet and branch. Each will hold information about either the student or teacher. The two
+tables will be linked through a foreign key. The student table has the following fields:\\
 \begin{figure}[H]
 \centering
-\caption{account user table}
-\includegraphics[scale=.5]{./accountUserTable.png}
+\caption{student table}
+\includegraphics[scale=.5]{./StudentTable.png}
 \\[0.2in]
-\label{fig:account user table}
+\label{fig:Student Table}
 \end{figure}
-Since one customer can have many accounts, We thought it only right to insert a foreign key
-acc\_id into the customer table. In addition, instead of having fields such as date created and
-date closed, I simply use the active field to check if the account is active or not. This will
+Since one teacher can teach many students, We thought it only right to insert a foreign key
+branch\_code and semester into the student table. In addition, we have made the teacher account to have admin privilege. This will
 enable us to focus more on the programming than on particulars of the database.\\
+\pagebreak
 \thispagestyle{fancy}
-
 \section{Identify Major entities, attributes and relationships}
 \begin{itemize}
-\item User registration for online banking if not register.
-\item Adding Beneficiary account by customer using entity called Acconts.
-\item Transferring amount to the local customer account number using Transfer entity
+\item Login page to give access to priviledged teachers.
+\item Adding student and teacher details by the teacher.
+\item Changing the id and password of the teacher.
 which stores the details of transaction.
-\item Customer can check all transactions made with their account in their Transaction
-details using Transaction Entity or table.
-\item Customer can check their account statement within a date range.
+\item Teachers can check all details butnot passwords and modify them.
+\item Teacher can delete the entities in the tables.
+\item Easy  search facilities to get the reqiured information.
 \end{itemize}
 
 \thispagestyle{fancy}
@@ -33,19 +31,20 @@ details using Transaction Entity or table.
 \section{ER Schema}
 \begin{figure}[H]
 \centering
-\caption{ERD}
-\includegraphics[scale=.5]{./erd.png}
+\caption{Entity Relationship Diagram}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./erd.png}
 \\[0.2in]
-\label{fig:ER diagram}
+\label{fig:Entitiy Relationship Diagram}
 \end{figure}
 
+\pagebreak
 \thispagestyle{fancy}
 
-\section{Relational Schema}
+\section{Schema Diagram}
 \begin{figure}[H]
 \centering
 \caption{Relational Schema}
-\includegraphics[scale=.5]{./rs.png}
+\includegraphics[scale=.5]{./schema.png}
 \\[0.2in]
 \label{fig:Relational Schema}
 \end{figure}
